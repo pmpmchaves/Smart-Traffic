@@ -13,17 +13,17 @@ app = Flask(__name__)
 
 app.config['DEBUG'] = True
 
-# change this to your own value 
+# change this to your own value
 app.secret_key = '*****'
 
 @app.route("/")
 def index():
-    
+
     region = request.args.get('region')
-    
+
     # if not region:
     #     region= DEFAULTS['region']
-      
+
     traffic = traffic_parser.get_traffic(region)
     return render_template("home.html", traffic_properties = traffic, region=region)
 
@@ -45,7 +45,7 @@ def server_error(e):
 def contact():
   # form = ContactForm()
 
- 
+
 
   if request.method == 'POST':
 
@@ -62,6 +62,3 @@ if __name__ == '__main__':
      # app on Google App Engine. See entrypoint in app.yaml.
      #app.run(debug=True, use_reloader=True)
      app.run(debug=True, host='0.0.0.0', port=5000)
-    
-
-
