@@ -16,6 +16,8 @@ app.config['DEBUG'] = True
 # change this to your own value
 app.secret_key = '*****'
 
+print(app.secret_key)
+
 @app.route("/")
 def index():
 
